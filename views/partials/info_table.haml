@@ -1,0 +1,14 @@
+- title ||= nil
+
+%table.info
+  - if title
+    %caption= title
+  - info.each do |name, value|
+    %tr
+      %th= name
+      - if value.is_a? Hash
+        %td.sub_table= partial :info_table, {:info => value}
+      - else
+        %td= value
+    
+    

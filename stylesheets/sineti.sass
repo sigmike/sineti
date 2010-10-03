@@ -1,0 +1,41 @@
+// palette : http://fr-fr.colourlovers.com/palette/1204820/shell_collection
+
+@import "blueprint"
+@import "blueprint/colors"
+@import "blueprint/grid"
+
+body
+  background-color: #F4FCE8
+  color: #290E0B
+  @include container
+  overflow: auto
+
+#content
+  @include column(24, true)
+  text-align: center
+
+table.info
+  border-collapse: collapse
+  margin: 0.2em auto
+
+  caption
+    text-align: center
+
+  tr
+    
+    td,th
+      padding: 0.2em
+      border: 1px solid black
+    
+    td
+      background-color: #CDD7B6
+      
+    th
+      background-color: #D3E2B6
+  
+  td.sub_table
+    padding: 0
+    table
+      padding: 0
+      margin: -1px
+      
