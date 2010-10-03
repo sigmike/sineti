@@ -52,4 +52,12 @@ class Ganeti
   def node(id, options = {})
     get("/2/nodes/#{id}", options)
   end
+
+  def instances(options = {})
+    get('/2/instances', options)
+  end
+
+  def instance(id, options = {})
+    get("/2/instances/#{id}", options)
+  end
 end

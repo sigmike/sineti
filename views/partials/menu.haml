@@ -10,4 +10,9 @@
           %a(href="/node/info/#{id}")= id
   %li
     %a(href="/instance/list") Instances
+    %ul
+      - @ganeti.instances.each do |node|
+        - id = node["id"]
+        %li
+          %a(href="/instance/info/#{id}")= id
   
