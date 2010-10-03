@@ -8,6 +8,11 @@
       %th= name
       - if value.is_a? Hash
         %td.sub_table= partial :info_table, {:info => value}
+      - elsif value.is_a? Array
+        %td
+          %ul
+            - value.each do |item|
+              %li= item
       - else
         %td= value
     

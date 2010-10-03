@@ -6,9 +6,26 @@ class Ganeti
     @cluster = cluster
     @port = port
   end
+  
+  def convert_booleans(options)
+    result = {}
+    options.each do |name, value|
+      case value
+      when true
+        value = 1
+      when false
+        value = 0
+      when Hash
+        value = convert_booleans(value)
+      end
+      result[name] = value
+    end
+    result
+  end
 
   def request(method, uri, options = {})
-    response = HTTParty.send(method, "https://#@cluster:#@port#{uri}")
+    options = convert_booleans(options)
+    response = HTTParty.send(method, "https://#@cluster:#@port#{uri}", options)
     JSON.load(response.body)
   end
   
@@ -26,5 +43,9 @@ class Ganeti
   
   def info
     get('/2/info')
+  end
+  
+  def nodes(options = {})
+    get('/2/nodes', options)
   end
 end

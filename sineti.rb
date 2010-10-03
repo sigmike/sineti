@@ -31,5 +31,9 @@ get '/screen.css' do
 end
 
 get '/' do
-  haml :index
+  redirect '/cluster/info'
+end
+
+get '/:object/:action' do |object, action|
+  haml "#{object}/#{action}".to_sym
 end

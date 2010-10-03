@@ -5,18 +5,37 @@
 @import "blueprint/grid"
 
 body
-  background-color: #F4FCE8
-  color: #290E0B
   @include container
   overflow: auto
+  background-color: #F0F0D8
+  color: #290E0B
+
+#main_container
+  @include column(24, true)
+
+#header
+  @include column(24, true)
+  h1
+    font-size: 200%
+    padding: 0.2em
+
+#menu
+  @include column(6)
+  padding-top: 2em
+  @include append-bottom
+  
+  ul
+    list-style: none
+    padding-left: 1em
+    
+    li
+      list-style: none
 
 #content
-  @include column(24, true)
-  text-align: center
+  @include column(18, true)
 
 table.info
   border-collapse: collapse
-  margin: 0.2em auto
 
   caption
     text-align: center
@@ -39,3 +58,7 @@ table.info
       padding: 0
       margin: -1px
       
+
+  ul
+    margin-left: 1.5em
+    
