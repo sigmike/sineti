@@ -48,4 +48,8 @@ class Ganeti
   def nodes(options = {})
     get('/2/nodes', options)
   end
+
+  def node(id, options = {})
+    get("/2/nodes/#{id}", options)
+  end
 end

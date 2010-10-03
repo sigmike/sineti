@@ -1,8 +1,13 @@
 %ul
   %li
-    %a(href="/cluster/info") Cluster info
+    %a(href="/cluster/info") Cluster
   %li
-    %a(href="/node/list") Node list
+    %a(href="/node/list") Nodes
+    %ul
+      - @ganeti.nodes.each do |node|
+        - id = node["id"]
+        %li
+          %a(href="/node/info/#{id}")= id
   %li
-    %a(href="/instance/list") Instance list
+    %a(href="/instance/list") Instances
   

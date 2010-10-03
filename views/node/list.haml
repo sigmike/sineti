@@ -1,4 +1,3 @@
-- nodes = {}
 - @ganeti.nodes(:bulk => true).each do |info|
   - name = info.delete("name")
   = partial :info_table, :info => info, :title => name

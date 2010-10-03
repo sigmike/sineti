@@ -37,3 +37,7 @@ end
 get '/:object/:action' do |object, action|
   haml "#{object}/#{action}".to_sym
 end
+
+get '/:object/:action/:id' do |object, action, id|
+  haml "#{object}/#{action}".to_sym, :locals => {:id => id}
+end
